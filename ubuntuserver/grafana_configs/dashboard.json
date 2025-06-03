@@ -1,43 +1,4 @@
 {
-  "__elements": {},
-  "__requires": [
-    {
-      "type": "panel",
-      "id": "bargauge",
-      "name": "Bar gauge",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "gauge",
-      "name": "Gauge",
-      "version": ""
-    },
-    {
-      "type": "grafana",
-      "id": "grafana",
-      "name": "Grafana",
-      "version": "11.6.1"
-    },
-    {
-      "type": "datasource",
-      "id": "prometheus",
-      "name": "Prometheus",
-      "version": "1.0.0"
-    },
-    {
-      "type": "panel",
-      "id": "stat",
-      "name": "Stat",
-      "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "timeseries",
-      "name": "Time series",
-      "version": ""
-    }
-  ],
   "annotations": {
     "list": [
       {
@@ -60,7 +21,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 1,
-  "id": null,
+  "id": 2,
   "links": [
     {
       "icon": "external link",
@@ -158,7 +119,7 @@
         "text": {},
         "valueMode": "color"
       },
-      "pluginVersion": "11.6.1",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": "Prometheus",
@@ -283,7 +244,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.6.1",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": "Prometheus",
@@ -366,7 +327,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.6.1",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": "Prometheus",
@@ -439,7 +400,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.6.1",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": "Prometheus",
@@ -522,7 +483,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.6.1",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": "Prometheus",
@@ -603,7 +564,7 @@
         "showThresholdMarkers": true,
         "sizing": "auto"
       },
-      "pluginVersion": "11.6.1",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": "Prometheus",
@@ -677,7 +638,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.1",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": "Prometheus",
@@ -750,7 +711,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.1",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": "Prometheus",
@@ -828,7 +789,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.1",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": "Prometheus",
@@ -910,7 +871,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.1",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": "Prometheus",
@@ -990,7 +951,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.1",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": "Prometheus",
@@ -1068,7 +1029,7 @@
         "textMode": "auto",
         "wideLayout": true
       },
-      "pluginVersion": "11.6.1",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": "Prometheus",
@@ -1251,7 +1212,7 @@
           "sort": "desc"
         }
       },
-      "pluginVersion": "11.6.1",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": "Prometheus",
@@ -1476,7 +1437,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "11.6.1",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": "Prometheus",
@@ -1627,7 +1588,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "11.6.1",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": "Prometheus",
@@ -1732,7 +1693,7 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "11.6.1",
+      "pluginVersion": "12.0.1",
       "targets": [
         {
           "datasource": "Prometheus",
@@ -1750,12 +1711,198 @@
       "type": "timeseries"
     },
     {
+      "datasource": {
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "axisPlacement": "auto",
+            "fillOpacity": 60,
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": 30000,
+            "lineWidth": 0,
+            "spanNulls": false
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red"
+              },
+              {
+                "color": "green",
+                "value": 1
+              },
+              {
+                "color": "semi-dark-purple",
+                "value": 2
+              },
+              {
+                "color": "semi-dark-orange",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 20
+      },
+      "id": 339,
+      "options": {
+        "alignValue": "left",
+        "legend": {
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "mergeValues": true,
+        "rowHeight": 0.8,
+        "showValue": "never",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1",
+      "targets": [
+        {
+          "disableTextWrap": false,
+          "editorMode": "code",
+          "expr": "monitor_status",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "legendFormat": "{{monitor_url}}",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Uptime Kuma - Uptime",
+      "type": "state-timeline"
+    },
+    {
+      "datasource": {
+        "uid": "PBFA97CFB590B2093"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "barWidthFactor": 0.6,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "insertNulls": false,
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "fieldMinMax": false,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "dark-red",
+                "value": -1
+              },
+              {
+                "color": "green",
+                "value": 1
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 20
+      },
+      "id": 340,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "12.0.1",
+      "targets": [
+        {
+          "disableTextWrap": false,
+          "editorMode": "builder",
+          "expr": "monitor_response_time",
+          "fullMetaSearch": false,
+          "includeNullMetadata": true,
+          "legendFormat": "{{monitor_url}}",
+          "range": true,
+          "refId": "A",
+          "useBackend": false
+        }
+      ],
+      "title": "Uptime Kuma - Response time",
+      "type": "timeseries"
+    },
+    {
       "collapsed": true,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 20
+        "y": 28
       },
       "id": 265,
       "panels": [
@@ -3404,7 +3551,7 @@
         },
         {
           "datasource": "Prometheus",
-          "description": "How often tasks experience CPU, memory, or I/O delays. \u201cSome\u201d indicates partial slowdown; \u201cFull\u201d indicates all tasks are stalled. Based on Linux PSI metrics:\nhttps://docs.kernel.org/accounting/psi.html",
+          "description": "How often tasks experience CPU, memory, or I/O delays. “Some” indicates partial slowdown; “Full” indicates all tasks are stalled. Based on Linux PSI metrics:\nhttps://docs.kernel.org/accounting/psi.html",
           "fieldConfig": {
             "defaults": {
               "color": {
@@ -3594,7 +3741,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 21
+        "y": 29
       },
       "id": 266,
       "panels": [
@@ -3708,7 +3855,7 @@
               "expr": "node_memory_Committed_AS_bytes{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "Committed_AS \u2013 Memory promised to processes (not necessarily used)",
+              "legendFormat": "Committed_AS – Memory promised to processes (not necessarily used)",
               "range": true,
               "refId": "A",
               "step": 240
@@ -3817,7 +3964,7 @@
               "expr": "node_memory_Writeback_bytes{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "Writeback \u2013 Memory currently being flushed to disk",
+              "legendFormat": "Writeback – Memory currently being flushed to disk",
               "range": true,
               "refId": "A",
               "step": 240
@@ -3828,7 +3975,7 @@
               "expr": "node_memory_WritebackTmp_bytes{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "WritebackTmp \u2013 FUSE temporary writeback buffers",
+              "legendFormat": "WritebackTmp – FUSE temporary writeback buffers",
               "range": true,
               "refId": "B",
               "step": 240
@@ -3839,7 +3986,7 @@
               "expr": "node_memory_Dirty_bytes{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "Dirty \u2013 Memory marked dirty (pending write to disk)",
+              "legendFormat": "Dirty – Memory marked dirty (pending write to disk)",
               "range": true,
               "refId": "C",
               "step": 240
@@ -3851,7 +3998,7 @@
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "NFS Unstable \u2013 Pages sent to NFS server, awaiting storage commit",
+              "legendFormat": "NFS Unstable – Pages sent to NFS server, awaiting storage commit",
               "range": true,
               "refId": "D",
               "step": 240
@@ -3949,7 +4096,7 @@
               "expr": "node_memory_SUnreclaim_bytes{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "SUnreclaim \u2013 Non-reclaimable slab memory (kernel objects)",
+              "legendFormat": "SUnreclaim – Non-reclaimable slab memory (kernel objects)",
               "range": true,
               "refId": "A",
               "step": 240
@@ -3960,7 +4107,7 @@
               "expr": "node_memory_SReclaimable_bytes{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "SReclaimable \u2013 Potentially reclaimable slab memory (e.g., inode cache)",
+              "legendFormat": "SReclaimable – Potentially reclaimable slab memory (e.g., inode cache)",
               "range": true,
               "refId": "B",
               "step": 240
@@ -4059,7 +4206,7 @@
               "expr": "node_memory_Mapped_bytes{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "Mapped \u2013 Memory mapped from files (e.g., libraries, mmap)",
+              "legendFormat": "Mapped – Memory mapped from files (e.g., libraries, mmap)",
               "range": true,
               "refId": "A",
               "step": 240
@@ -4070,7 +4217,7 @@
               "expr": "node_memory_Shmem_bytes{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "Shmem \u2013 Shared memory used by processes and tmpfs",
+              "legendFormat": "Shmem – Shared memory used by processes and tmpfs",
               "range": true,
               "refId": "B",
               "step": 240
@@ -4082,7 +4229,7 @@
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "ShmemHugePages \u2013 Shared memory (shmem/tmpfs) allocated with HugePages",
+              "legendFormat": "ShmemHugePages – Shared memory (shmem/tmpfs) allocated with HugePages",
               "range": true,
               "refId": "C",
               "step": 240
@@ -4094,7 +4241,7 @@
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "PMD Mapped \u2013 Shmem/tmpfs backed by Transparent HugePages (PMD)",
+              "legendFormat": "PMD Mapped – Shmem/tmpfs backed by Transparent HugePages (PMD)",
               "range": true,
               "refId": "D",
               "step": 240
@@ -4224,7 +4371,7 @@
               "expr": "(node_memory_Inactive_bytes{instance=\"$node\",job=\"$job\"}) \n/ \n(node_memory_MemTotal_bytes{instance=\"$node\",job=\"$job\"})",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "Inactive \u2013 Less recently used memory, more likely to be reclaimed",
+              "legendFormat": "Inactive – Less recently used memory, more likely to be reclaimed",
               "range": true,
               "refId": "A",
               "step": 240
@@ -4235,7 +4382,7 @@
               "expr": "(node_memory_Active_bytes{instance=\"$node\",job=\"$job\"}) \n/ \n(node_memory_MemTotal_bytes{instance=\"$node\",job=\"$job\"})\n",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "Active \u2013 Recently used memory, retained unless under pressure",
+              "legendFormat": "Active – Recently used memory, retained unless under pressure",
               "range": true,
               "refId": "B",
               "step": 240
@@ -4347,7 +4494,7 @@
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Inactive_anon \u2013 Anonymous memory on inactive LRU (incl. tmpfs & swap cache)",
+              "legendFormat": "Inactive_anon – Anonymous memory on inactive LRU (incl. tmpfs & swap cache)",
               "range": true,
               "refId": "B",
               "step": 240
@@ -4371,7 +4518,7 @@
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Active_anon \u2013 Anonymous memory on active LRU (incl. tmpfs & swap cache)",
+              "legendFormat": "Active_anon – Anonymous memory on active LRU (incl. tmpfs & swap cache)",
               "range": true,
               "refId": "D",
               "step": 240
@@ -4470,7 +4617,7 @@
               "expr": "node_memory_KernelStack_bytes{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "KernelStack \u2013 Kernel stack memory (per-thread, non-reclaimable)",
+              "legendFormat": "KernelStack – Kernel stack memory (per-thread, non-reclaimable)",
               "range": true,
               "refId": "A",
               "step": 240
@@ -4482,7 +4629,7 @@
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "PerCPU \u2013 Dynamically allocated per-CPU memory (used by kernel modules)",
+              "legendFormat": "PerCPU – Dynamically allocated per-CPU memory (used by kernel modules)",
               "range": true,
               "refId": "B",
               "step": 240
@@ -4495,7 +4642,7 @@
               "hide": false,
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "Bounce Memory \u2013 I/O buffer for DMA-limited devices",
+              "legendFormat": "Bounce Memory – I/O buffer for DMA-limited devices",
               "range": true,
               "refId": "C",
               "step": 240
@@ -4624,7 +4771,7 @@
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Vmalloc Free Chunk \u2013 Largest available block in vmalloc area",
+              "legendFormat": "Vmalloc Free Chunk – Largest available block in vmalloc area",
               "range": true,
               "refId": "A",
               "step": 240
@@ -4636,7 +4783,7 @@
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Vmalloc Total \u2013 Total size of the vmalloc memory area",
+              "legendFormat": "Vmalloc Total – Total size of the vmalloc memory area",
               "range": true,
               "refId": "B",
               "step": 240
@@ -4648,7 +4795,7 @@
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "Vmalloc Used \u2013 Portion of vmalloc area currently in use",
+              "legendFormat": "Vmalloc Used – Portion of vmalloc area currently in use",
               "range": true,
               "refId": "C",
               "step": 240
@@ -4746,7 +4893,7 @@
               "expr": "node_memory_AnonHugePages_bytes{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "AnonHugePages \u2013 Anonymous memory using HugePages",
+              "legendFormat": "AnonHugePages – Anonymous memory using HugePages",
               "range": true,
               "refId": "A",
               "step": 240
@@ -4757,7 +4904,7 @@
               "expr": "node_memory_AnonPages_bytes{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "AnonPages \u2013 Anonymous memory (non-file-backed)",
+              "legendFormat": "AnonPages – Anonymous memory (non-file-backed)",
               "range": true,
               "refId": "B",
               "step": 240
@@ -4872,7 +5019,7 @@
               "expr": "node_memory_Unevictable_bytes{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "Unevictable \u2013 Kernel-pinned memory (not swappable)",
+              "legendFormat": "Unevictable – Kernel-pinned memory (not swappable)",
               "range": true,
               "refId": "A",
               "step": 240
@@ -4883,7 +5030,7 @@
               "expr": "node_memory_Mlocked_bytes{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "Mlocked \u2013 Application-locked memory via mlock()",
+              "legendFormat": "Mlocked – Application-locked memory via mlock()",
               "range": true,
               "refId": "B",
               "step": 240
@@ -5256,7 +5403,7 @@
               "expr": "node_memory_DirectMap1G_bytes{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "DirectMap 1G \u2013 Memory mapped with 1GB pages",
+              "legendFormat": "DirectMap 1G – Memory mapped with 1GB pages",
               "range": true,
               "refId": "A",
               "step": 240
@@ -5268,7 +5415,7 @@
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "DirectMap 2M \u2013 Memory mapped with 2MB pages",
+              "legendFormat": "DirectMap 2M – Memory mapped with 2MB pages",
               "range": true,
               "refId": "B",
               "step": 240
@@ -5280,7 +5427,7 @@
               "format": "time_series",
               "interval": "",
               "intervalFactor": 1,
-              "legendFormat": "DirectMap 4K \u2013 Memory mapped with 4KB pages",
+              "legendFormat": "DirectMap 4K – Memory mapped with 4KB pages",
               "range": true,
               "refId": "C",
               "step": 240
@@ -5378,7 +5525,7 @@
               "expr": "node_memory_HugePages_Free{instance=\"$node\",job=\"$job\"} * node_memory_Hugepagesize_bytes{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "HugePages Used \u2013 Currently allocated",
+              "legendFormat": "HugePages Used – Currently allocated",
               "range": true,
               "refId": "A",
               "step": 240
@@ -5389,7 +5536,7 @@
               "expr": "node_memory_HugePages_Rsvd{instance=\"$node\",job=\"$job\"} * node_memory_Hugepagesize_bytes{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "HugePages Reserved \u2013 Promised but unused",
+              "legendFormat": "HugePages Reserved – Promised but unused",
               "range": true,
               "refId": "B",
               "step": 240
@@ -5400,7 +5547,7 @@
               "expr": "node_memory_HugePages_Surp{instance=\"$node\",job=\"$job\"} * node_memory_Hugepagesize_bytes{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
               "intervalFactor": 1,
-              "legendFormat": "HugePages Surplus \u2013 Dynamic pool extension",
+              "legendFormat": "HugePages Surplus – Dynamic pool extension",
               "range": true,
               "refId": "C",
               "step": 240
@@ -5412,7 +5559,7 @@
               "format": "time_series",
               "hide": false,
               "intervalFactor": 1,
-              "legendFormat": "HugePages Total \u2013 Reserved memory",
+              "legendFormat": "HugePages Total – Reserved memory",
               "range": true,
               "refId": "D",
               "step": 240
@@ -5431,7 +5578,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 22
+        "y": 30
       },
       "id": 267,
       "panels": [
@@ -5963,7 +6110,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 23
+        "y": 31
       },
       "id": 293,
       "panels": [
@@ -6696,7 +6843,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 24
+        "y": 32
       },
       "id": 312,
       "panels": [
@@ -7530,7 +7677,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 25
+        "y": 33
       },
       "id": 269,
       "panels": [
@@ -8345,7 +8492,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 26
+        "y": 34
       },
       "id": 304,
       "panels": [
@@ -8857,7 +9004,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 27
+        "y": 35
       },
       "id": 296,
       "panels": [
@@ -9390,7 +9537,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 28
+        "y": 36
       },
       "id": 270,
       "panels": [
@@ -9406,7 +9553,7 @@
                 "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
-                "axisLabel": "read (\u2013) / write (+)",
+                "axisLabel": "read (–) / write (+)",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
                 "barWidthFactor": 0.6,
@@ -9540,7 +9687,7 @@
                 "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
-                "axisLabel": "read (\u2013) / write (+)",
+                "axisLabel": "read (–) / write (+)",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
                 "barWidthFactor": 0.6,
@@ -9678,7 +9825,7 @@
                 "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
-                "axisLabel": "read (\u2013) / write (+)",
+                "axisLabel": "read (–) / write (+)",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
                 "barWidthFactor": 0.6,
@@ -9930,7 +10077,7 @@
                 "axisBorderShow": false,
                 "axisCenteredZero": false,
                 "axisColorMode": "text",
-                "axisLabel": "read (\u2013) / write (+)",
+                "axisLabel": "read (–) / write (+)",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
                 "barWidthFactor": 0.6,
@@ -10562,7 +10709,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 29
+        "y": 37
       },
       "id": 271,
       "panels": [
@@ -11024,7 +11171,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 30
+        "y": 38
       },
       "id": 272,
       "panels": [
@@ -12683,7 +12830,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 31
+        "y": 39
       },
       "id": 273,
       "panels": [
@@ -13750,7 +13897,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 32
+        "y": 40
       },
       "id": 274,
       "panels": [
@@ -15370,7 +15517,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 33
+        "y": 41
       },
       "id": 279,
       "panels": [
@@ -16001,15 +16148,17 @@
       "type": "row"
     }
   ],
+  "preload": false,
   "refresh": "1m",
   "schemaVersion": 41,
-  "tags": [
-    "linux"
-  ],
+  "tags": [],
   "templating": {
     "list": [
       {
-        "current": {},
+        "current": {
+          "text": "Prometheus",
+          "value": "PBFA97CFB590B2093"
+        },
         "includeAll": false,
         "label": "Datasource",
         "name": "datasource",
@@ -16020,7 +16169,10 @@
         "type": "datasource"
       },
       {
-        "current": {},
+        "current": {
+          "text": "node",
+          "value": "node"
+        },
         "datasource": "Prometheus",
         "definition": "",
         "includeAll": false,
@@ -16037,7 +16189,10 @@
         "type": "query"
       },
       {
-        "current": {},
+        "current": {
+          "text": "e8977b1efa18",
+          "value": "e8977b1efa18"
+        },
         "datasource": "Prometheus",
         "definition": "label_values(node_uname_info{job=\"$job\"}, nodename)",
         "includeAll": false,
@@ -16054,7 +16209,10 @@
         "type": "query"
       },
       {
-        "current": {},
+        "current": {
+          "text": "node-exporter:9100",
+          "value": "node-exporter:9100"
+        },
         "datasource": "Prometheus",
         "definition": "label_values(node_uname_info{job=\"$job\", nodename=\"$nodename\"}, instance)",
         "includeAll": false,
@@ -16096,9 +16254,7 @@
   },
   "timepicker": {},
   "timezone": "browser",
-  "title": "Node Exporter Full",
-  "uid": "rYdddlPWk",
-  "version": 94,
-  "weekStart": "",
-  "gnetId": 1860
+  "title": "Pepperboard",
+  "uid": "37595ff9-1d35-4e02-9f03-954a86b85f84",
+  "version": 8
 }

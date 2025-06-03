@@ -7,7 +7,7 @@ aservices:
       - 'GF_SERVER_DOMAIN=${SERVICE_FQDN_GRAFANA}'
       - 'GF_SECURITY_ADMIN_PASSWORD=${SERVICE_PASSWORD_GRAFANA}'
     volumes:
-      - rafana-data:/var/lib/grafana
+      - grafana-data:/var/lib/grafana
       - ~/grafana_configs/datasources.yml:/etc/grafana/provisioning/datasources/datasource.yaml:ro
       - ~/grafana_configs/dashboard.yml:/etc/grafana/provisioning/dashboards/dashboard.yaml:ro
       - ~/grafana_configs/dashboard.json:/var/lib/grafana/dashboards/dashboard.json:ro
@@ -37,3 +37,23 @@ aservices:
       - '--path.rootfs=/host'
     volumes:
       - /:/host:ro,rslave
+  
+  uptime-kuma:
+    image: 'louislam/uptime-kuma:1'
+    environment:
+      - SERVICE_FQDN_UPTIMEKUMA_3001
+    volumes:
+      - 'uptime-kuma:/app/data'
+    healthcheck:
+      test:
+        - CMD-SHELL
+        - extra/healthcheck
+      interval: 2s
+      timeout: 10s
+      retries: 15
+    ports:
+      - "9200:3001"
+  
+volumes:
+  grafana-data:
+  uptime-kuma:
