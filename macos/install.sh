@@ -28,10 +28,10 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-
 echo "Configuring zsh and powerlevel10k..."
 curl -o $HOME/.zshrc https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/.zshrc
 curl -o $HOME/.p10k.zsh https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/.p10k.zsh
-curl -o $HOME/.bash_profile https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/.bash_profile
-curl -o $HOME/.gitconfig https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/.gitconfig
-curl -o $HOME/.zprofile https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/.zprofile
-curl -o $HOME/yt-dlp.conf https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/yt-dlp.conf
+curl -o $HOME/.bash_profile https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/macos/.bash_profile
+curl -o $HOME/.gitconfig https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/macos/.gitconfig
+curl -o $HOME/.zprofile https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/macos/.zprofile
+curl -o $HOME/yt-dlp.conf https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/macos/yt-dlp.conf
 
 # Installs zsh-autosuggestions
 echo "Installing zsh-autosuggestions..."
