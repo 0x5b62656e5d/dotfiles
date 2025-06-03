@@ -26,8 +26,12 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-
 
 # Configures zsh and p10k with dotfiles repository
 echo "Configuring zsh and powerlevel10k..."
-curl -o $HOME/.zshrc https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/.zshrc
-curl -o $HOME/.p10k.zsh https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/.p10k.zsh
+curl -o $HOME/.zshrc https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/.zshrc
+curl -o $HOME/.p10k.zsh https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/.p10k.zsh
+curl -o $HOME/.bash_profile https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/dots/.bash_profile
+curl -o $HOME/.gitconfig https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/dots/.gitconfig
+curl -o $HOME/.zprofile https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/dots/.zprofile
+curl -o $HOME/yt-dlp.conf https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/dots/yt-dlp.conf
 
 # Installs zsh-autosuggestions
 echo "Installing zsh-autosuggestions..."
@@ -122,6 +126,10 @@ brew install pinentry-mac
 # Installs pipes-sh
 echo "Installing pipes.sh..."
 brew install pipes-sh
+
+# Installs rust
+echo "Installing Rust..."
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Installs gh
 echo "Installing GitHub CLI..."

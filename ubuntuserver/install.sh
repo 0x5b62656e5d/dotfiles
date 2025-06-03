@@ -26,8 +26,8 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-
 
 # Configures zsh and p10k with dotfiles repository
 echo "Configuring zsh and powerlevel10k..."
-curl -o $HOME/.zshrc https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/.zshrc
-curl -o $HOME/.p10k.zsh https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/.p10k.zsh
+curl -o $HOME/.zshrc https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/.zshrc
+curl -o $HOME/.p10k.zsh https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/.p10k.zsh
 
 # Installs zsh-autosuggestions
 echo "Installing zsh-autosuggestions..."
