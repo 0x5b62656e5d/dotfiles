@@ -31,11 +31,11 @@ curl -o $HOME/.p10k.zsh https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/
 
 # Installs zsh-autosuggestions
 echo "Installing zsh-autosuggestions..."
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 # Installs zsh-syntax-highlighting
 echo "Installing zsh-syntax-highlighting..."
-echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # Installs fastfetch
 echo "Installing fastfetch..."
@@ -44,6 +44,10 @@ sudo apt install fastfetch -y
 # Installs ripgrep
 echo "Installing ripgrep..."
 sudo apt install ripgrep -y
+
+# Install fzf
+echo "Installing fzf..."
+sudo apt install fzf -y
 
 # Installs nvm
 echo "Installing nvm..."
