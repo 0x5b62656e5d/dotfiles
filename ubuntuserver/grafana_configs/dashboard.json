@@ -9335,13 +9335,26 @@
               "editorMode": "code",
               "expr": "node_power_supply_online{instance=\"$node\",job=\"$job\"}",
               "format": "time_series",
-              "hide": false,
+              "hide": true,
               "interval": "",
               "intervalFactor": 1,
               "legendFormat": "{{ power_supply }} online",
               "range": true,
               "refId": "A",
               "step": 240
+            },
+            {
+              "datasource": {
+                "type": "prometheus",
+                "uid": "PBFA97CFB590B2093"
+              },
+              "editorMode": "code",
+              "expr": "node_hwmon_power_watt",
+              "hide": false,
+              "instant": false,
+              "legendFormat": "{{sensor}}",
+              "range": true,
+              "refId": "B"
             }
           ],
           "title": "Power Supply",
