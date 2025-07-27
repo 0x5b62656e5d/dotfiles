@@ -157,17 +157,8 @@ _fzf_compgen_dir() {
 }
 
 #* Alias for ls (eza)
-# alias ls='eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions --tree --level=2'
 unalias ls
-function ls() {
-  if [[ $1 =~ ^[0-9]+$ ]]; then
-    eza --color=always --long --all --git --no-filesize --icons=always --no-time --no-user --no-permissions --tree --level=$1 $2
-  else
-    eza --color=always --long --all --git --no-filesize --icons=always --no-time --no-user --no-permissions --tree --level=1 $1
-  fi
-}
-
-autoload -Uz ls
+alias ls='eza --color=always --long --all --git --no-filesize --modified --icons=always --no-user --no-permissions --tree --ignore-glob="build|node_modules" --level=2'
 
 #* Disabling/enabling - macOS
 function sleep() {
