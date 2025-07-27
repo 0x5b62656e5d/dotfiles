@@ -9299,7 +9299,7 @@
                   }
                 ]
               },
-              "unit": "bool_yes_no"
+              "unit": "watt"
             },
             "overrides": []
           },
