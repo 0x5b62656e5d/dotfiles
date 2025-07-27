@@ -116,6 +116,15 @@ sudo apt install iputils-ping -y
 echo "Installing net-tools..."
 sudo apt install net-tools -y
 
+# Conigure .config files
+echo "Configuring .config files..."
+mkdir $HOME/.config
+mkdir $HOME/.config/btop
+mkdir $HOME/.config/fastfetch
+curl -o $HOME/.config/btop/btop.conf https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/.config/btop/btop.conf
+curl -o $HOME/.config/fastfetch/config.jsonc https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/.config/fastfetch/config.jsonc
+
+
 # Install Coolify
 echo "Installing Coolify..."
 curl -fsSL https://cdn.coollabs.io/coolify/install.sh | sudo bash
