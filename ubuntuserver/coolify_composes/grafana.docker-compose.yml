@@ -26,6 +26,7 @@ services:
       - "9110:9090"
     volumes:
       - ~/grafana_configs/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
@@ -71,3 +72,4 @@ services:
 volumes:
   grafana-data:
   uptime-kuma:
+  prometheus-data:
