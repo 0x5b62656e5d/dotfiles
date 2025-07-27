@@ -129,7 +129,7 @@ rm -rf $HOME/.config/nvim
 
 git clone https://github.com/0x5b62656e5d/dotfiles.git $HOME/dotfiles
 cd $HOME/dotfiles
-cp $HOME/dotfiles/dots/.zshrc $HOME/.zshrc
+cp $HOME/dotfiles/dots/ubuntuserver/.zshrc $HOME/.zshrc
 cp $HOME/dotfiles/dots/.p10k.zsh $HOME/.p10k.zsh
 cp $HOME/dotfiles/.config/btop/btop.conf $HOME/.config/btop/btop.conf
 cp $HOME/dotfiles/.config/fastfetch/config.jsonc $HOME/.config/fastfetch/config.jsonc
