@@ -15,3 +15,13 @@ scrape_configs:
     basic_auth:
         username: kuma_username
         password: kuma_password
+
+  - job_name: "docker"
+    scrape_interval: 30s
+    scrape_timeout: 30s
+    static_configs:
+        - targets: ["host.docker.internal:9323"]
+
+  - job_name: "cadvisor"
+    static_configs:
+        - targets: ["cadvisor:8080"]
