@@ -116,11 +116,6 @@ sudo apt install iputils-ping -y
 echo "Installing net-tools..."
 sudo apt install net-tools -y
 
-# Install PostgreSQL
-echo "Installing PostgreSQL..."
-sudo apt install -y postgresql-common
-sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
-
 # Install Coolify
 echo "Installing Coolify..."
 curl -fsSL https://cdn.coollabs.io/coolify/install.sh | sudo bash
