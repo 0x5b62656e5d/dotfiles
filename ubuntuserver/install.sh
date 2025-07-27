@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 echo "Prompting for sudo permissions..."
 sudo true
 
@@ -18,16 +20,11 @@ sudo apt install zsh -y
 
 # Installs oh-my-zsh
 echo "Installing oh-my-zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Installs powerlevel10k theme
 echo "Installing powerlevel10k theme..."
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-
-# Configures zsh and p10k with dotfiles repository
-echo "Configuring zsh and powerlevel10k..."
-curl -o $HOME/.zshrc https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/.zshrc
-curl -o $HOME/.p10k.zsh https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/.p10k.zsh
 
 # Installs zsh-autosuggestions
 echo "Installing zsh-autosuggestions..."
@@ -48,6 +45,10 @@ sudo apt install ripgrep -y
 # Install fzf
 echo "Installing fzf..."
 sudo apt install fzf -y
+
+# Install nvim
+echo "Installing Neovim..."
+sudo apt install neovim -y
 
 # Installs nvm
 echo "Installing nvm..."
@@ -116,14 +117,19 @@ sudo apt install iputils-ping -y
 echo "Installing net-tools..."
 sudo apt install net-tools -y
 
-# Conigure .config files
-echo "Configuring .config files..."
-mkdir $HOME/.config
-mkdir $HOME/.config/btop
-mkdir $HOME/.config/fastfetch
-curl -o $HOME/.config/btop/btop.conf https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/.config/btop/btop.conf
-curl -o $HOME/.config/fastfetch/config.jsonc https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/.config/fastfetch/config.jsonc
+# Configuring dotfiles
+echo "Configuring dotfiles..."
+mkdir -p $HOME/.config/btop
+mkdir -p $HOME/.config/fastfetch
+rm -rf $HOME/.config/nvim
 
+git clone https://github.com/0x5b62656e5d/dotfiles.git $HOME/dotfiles
+cd $HOME/dotfiles
+cp $HOME/dotfiles/.zshrc $HOME/.zshrc
+cp $HOME/dotfiles/.p10k.zsh $HOME/.p10k.zsh
+cp $HOME/dotfiles/.config/btop/btop.conf $HOME/.config/btop/btop.conf
+cp $HOME/dotfiles/.config/fastfetch/config.jsonc $HOME/.config/fastfetch/config.jsonc
+cp -r $HOME/dotfiles/.config/nvim $HOME/.config/nvim
 
 # Install Coolify
 echo "Installing Coolify..."
