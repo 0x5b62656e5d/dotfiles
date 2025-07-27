@@ -36,7 +36,9 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 # Installs fastfetch
 echo "Installing fastfetch..."
-sudo apt install fastfetch -y
+sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
+sudo apt update
+sudo apt install fastfetch
 
 # Installs ripgrep
 echo "Installing ripgrep..."
