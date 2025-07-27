@@ -61,25 +61,6 @@ nvm install --lts
 nvm use --lts
 nvm install -g npm
 
-# Install docker and its components
-for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
-
-# Add Docker's official GPG key:
-sudo apt-get update
-sudo apt-get install ca-certificates curl
-sudo install -m 0755 -d /etc/apt/keyrings
-sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-sudo chmod a+r /etc/apt/keyrings/docker.asc
-
-# Add the repository to Apt sources:
-echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
-  $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}") stable" | \
-  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt-get update
-
-sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-
 # Install fd-find
 echo "Installing fd-find..."
 sudo apt install fd-find -y
@@ -134,10 +115,6 @@ sudo apt install iputils-ping -y
 # Install net-tool
 echo "Installing net-tools..."
 sudo apt install net-tools -y
-
-# Configuring DNS entry for Cloudflare
-echo "Configuring DDNS for Cloudflare..."
-sh ./cloudflare-ddns.sh
 
 # Install PostgreSQL
 echo "Installing PostgreSQL..."
