@@ -44,10 +44,6 @@ sudo apt install fastfetch
 echo "Installing ripgrep..."
 sudo apt install ripgrep -y
 
-# Install fzf
-echo "Installing fzf..."
-sudo apt install fzf -y
-
 # Install nvim
 echo "Installing Neovim..."
 sudo apt install neovim -y
@@ -65,10 +61,6 @@ nvm use --lts
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 npm install -g pnpm
-
-# Install fd-find
-echo "Installing fd-find..."
-sudo apt install fd-find -y
 
 # Install eza
 echo "Installing eza..."
