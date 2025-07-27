@@ -1,4 +1,4 @@
-aservices:
+services:
   grafana:
     image: grafana/grafana-oss
     environment:
