@@ -243,6 +243,21 @@ function resetproxy() {
 #* Tailscale
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
+#* git
+alias gaa="git add ."
+alias gcm="git commit -m"
+alias gsb="git switch -b"
+alias gs="git switch"
+alias gsm="git switch --merge"
+alias gr="git restore"
+alias grs="git restore --staged"
+alias gst="git stash push -u -m \"WIP\""
+alias gsp="git stash pop"
+alias glo="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>% Creset' --stat"
+alias gd="git diff"
+alias gfp="git fetch -p"
+alias gcf="git clean -f"
+
 function pull() {
     fastfetch
 
