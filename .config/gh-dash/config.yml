@@ -1,0 +1,100 @@
+prSections:
+- title: My PR's
+  filters: is:open author:@me
+  type: null
+- title: Needs review
+  filters: is:open review-requested:@me
+  type: null
+- title: Involved
+  filters: is:open involves:@me -author:@me
+  type: null
+issuesSections:
+- title: My issues
+  filters: is:open author:@me
+- title: Assigned
+  filters: is:open assignee:@me
+- title: Involved
+  filters: is:open involves:@me -author:@me
+- title: Alcove open updated
+  filters: is:open repo:henrikruscon/alcove-releases sort:updated-desc
+- title: Alcove open new
+  filters: is:open repo:henrikruscon/alcove-releases sort:created-desc
+repo:
+  branchesRefetchIntervalSeconds: 30
+  prsRefetchIntervalSeconds: 60
+defaults:
+  preview:
+    open: true
+    width: 50
+  prsLimit: 50
+  prApproveComment: lgtm :D
+  issuesLimit: 50
+  view: prs
+  layout:
+    prs:
+      updatedAt:
+        width: 5
+      createdAt:
+        width: 5
+      repo:
+        width: 25
+      author:
+        width: 20
+      authorIcon:
+        hidden: false
+      assignees:
+        width: 20
+        hidden: true
+      base:
+        width: 15
+        hidden: true
+      lines:
+        width: 15
+    issues:
+      updatedAt:
+        width: 5
+      createdAt:
+        width: 5
+      repo:
+        width: 25
+      creator:
+        width: 20
+      creatorIcon:
+        hidden: false
+      assignees:
+        width: 20
+        hidden: true
+  refetchIntervalMinutes: 30
+keybindings:
+  universal: []
+  issues: []
+  prs: []
+  branches: []
+repoPaths: {}
+theme:
+  ui:
+    sectionsShowCount: true
+    table:
+      showSeparator: true
+      compact: false
+  theme:
+    colors:
+      text:
+        primary: "#cdd6f4"
+        secondary: "#f5c2e7"
+        inverted: "#11111b"
+        faint: "#bac2de"
+        warning: "#f9e2af"
+        success: "#a6e3a1"
+        error: "#f38ba8"
+      background:
+        selected: "#313244"
+      border:
+        primary: "#f5c2e7"
+        secondary: "#45475a"
+        faint: "#313244"
+pager:
+  diff: ""
+confirmQuit: true
+showAuthorIcons: true
+smartFilteringAtLaunch: true
