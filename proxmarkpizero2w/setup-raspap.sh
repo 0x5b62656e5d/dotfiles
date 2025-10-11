@@ -7,10 +7,10 @@ echo "Installing minimal RaspAP (no VPN/AdBlock/REST/WireGuard)..."
 curl -sL https://install.raspap.com | bash -s -- --yes \
   --openvpn 0 \
   --restapi 0 \
-  --adblock 0 \
+  --adblock 1 \
   --wireguard 0 \
   --provider 0 \
-  --tcp-bbr 0
+  --tcp-bbr 1
 
 # Configure network routing
 echo "Enabling IPv4 forwarding..."
