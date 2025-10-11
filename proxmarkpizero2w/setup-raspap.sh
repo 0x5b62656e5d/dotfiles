@@ -24,33 +24,26 @@ echo "Saving iptables rules to persist across reboots..."
 sudo apt-get install -y iptables-persistent
 sudo netfilter-persistent save
 
-# Set WiFi regulatory domain
-echo "Setting regulatory domain..."
-if [ ! -f /etc/wpa_supplicant/wpa_supplicant.conf ]; then
-  sudo tee /etc/wpa_supplicant/wpa_supplicant.conf > /dev/null <<EOF
-ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
-update_config=1
-country=TW
-EOF
-else
-  sudo sed -i '/^country=/d' /etc/wpa_supplicant/wpa_supplicant.conf
-  sudo sed -i '/^ctrl_interface/ a country=TW' /etc/wpa_supplicant/wpa_supplicant.conf
-fi
+# Configure network interfaces
+sudo iw dev wlan0 interface add uap0 type __ap
+sudo ifconfig uap0 up
 
+# Configure network
+echo "Configuring network..."
+sudo iw reg set TW
 sudo tee /etc/default/crda > /dev/null <<EOF
 REGDOMAIN=TW
 EOF
 
-# Configure hostapd
-echo "Configuring hostapd..."
+sudo cp $HOME/dotfiles/dots/proxmarkpizero2w/NetworkManager.conf /etc/NetworkManager/
+sudo cp $HOME/dotfiles/dots/proxmarkpizero2w/dnsmasq.conf /etc/
+sudo cp $HOME/dotfiles/dots/proxmarkpizero2w/wpa_supplicant.conf /etc/wpa_supplicant/
 sudo cp $HOME/dotfiles/dots/proxmarkpizero2w/hostapd.conf /etc/hostapd/
 
-# Configure network services
-echo "Disabling NetworkManager and wpa_supplicant..."
-sudo systemctl disable NetworkManager
-sudo systemctl disable wpa_supplicant
-
-echo "Enabling RaspAP services..."
+# Configure services
+echo "Configuring services..."
+sudo systemctl restart NetworkManager
+sudo systemctl restart wpa_supplicant
 sudo systemctl enable raspapd hostapd dnsmasq
 
 echo "Setup complete!"
