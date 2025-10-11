@@ -3,7 +3,7 @@
 set -e
 
 # Install RaspAP
-echo "Installing minimal RaspAP (no VPN/AdBlock/REST/WireGuard)..."
+echo "Installing minimal RaspAP with Adblock and TCP-BBR (no VPN/REST/WireGuard)..."
 curl -sL https://install.raspap.com | bash -s -- --yes \
   --openvpn 0 \
   --restapi 0 \
