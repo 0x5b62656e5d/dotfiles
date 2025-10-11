@@ -25,6 +25,7 @@ sudo apt-get install -y iptables-persistent
 sudo netfilter-persistent save
 
 # Configure network interfaces
+echo "Configuring network interfaces..."
 sudo iw dev wlan0 interface add uap0 type __ap
 sudo ifconfig uap0 up
 
