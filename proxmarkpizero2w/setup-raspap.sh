@@ -2,6 +2,7 @@
 
 set -e
 
+# Install RaspAP
 echo "Installing minimal RaspAP (no VPN/AdBlock/REST/WireGuard)..."
 curl -sL https://install.raspap.com | bash -s -- --yes \
   --openvpn 0 \
@@ -11,6 +12,7 @@ curl -sL https://install.raspap.com | bash -s -- --yes \
   --provider 0 \
   --tcp-bbr 0
 
+# Configure network routing
 echo "Enabling IPv4 forwarding..."
 sudo bash -c 'echo "net.ipv4.ip_forward=1" > /etc/sysctl.d/90_raspap.conf'
 sudo sysctl -p /etc/sysctl.d/90_raspap.conf
@@ -22,21 +24,35 @@ echo "Saving iptables rules to persist across reboots..."
 sudo apt-get install -y iptables-persistent
 sudo netfilter-persistent save
 
-# Set Wi-Fi country in wpa_supplicant.conf
-sudo sed -i '/^country=/d' /etc/wpa_supplicant/wpa_supplicant.conf
-echo "country=TW" | sudo tee -a /etc/wpa_supplicant/wpa_supplicant.conf
+# Set WiFi regulatory domain
+echo "Setting regulatory domain..."
+if [ ! -f /etc/wpa_supplicant/wpa_supplicant.conf ]; then
+  sudo tee /etc/wpa_supplicant/wpa_supplicant.conf > /dev/null <<EOF
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+country=TW
+EOF
+else
+  sudo sed -i '/^country=/d' /etc/wpa_supplicant/wpa_supplicant.conf
+  sudo sed -i '/^ctrl_interface/ a country=TW' /etc/wpa_supplicant/wpa_supplicant.conf
+fi
 
-# Set regulatory domain in crda defaults
-sudo sed -i '/^REGDOMAIN=/d' /etc/default/crda
-echo "REGDOMAIN=TW" | sudo tee -a /etc/default/crda
+sudo tee /etc/default/crda > /dev/null <<EOF
+REGDOMAIN=TW
+EOF
 
-cp $HOME/dotfiles/dots/proxmarkpizero2w/hostapd.conf /etc/hostapd/
+# Configure hostapd
+echo "Configuring hostapd..."
+sudo cp $HOME/dotfiles/dots/proxmarkpizero2w/hostapd.conf /etc/hostapd/
 
+# Configure network services
+echo "Disabling NetworkManager and wpa_supplicant..."
 sudo systemctl disable NetworkManager
 sudo systemctl disable wpa_supplicant
 
 echo "Enabling RaspAP services..."
 sudo systemctl enable raspapd hostapd dnsmasq
 
-echo "Done — rebooting..."
+echo "Setup complete!"
+echo "Rebooting system..."
 sudo reboot

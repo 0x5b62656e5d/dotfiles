@@ -104,7 +104,7 @@ cp $HOME/dotfiles/dots/.p10k.zsh $HOME/.p10k.zsh
 cp $HOME/dotfiles/.config/btop/btop.conf $HOME/.config/btop/btop.conf
 cp $HOME/dotfiles/.config/fastfetch/config.jsonc $HOME/.config/fastfetch/config.jsonc
 
-chsh -s "$(command -v zsh)" "$USER"
+sudo chsh -s "$(command -v zsh)" "$USER"
 
 echo "Installation complete!"
 echo "Rebooting system..."

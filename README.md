@@ -12,3 +12,7 @@ My dotfiles with a pinch of peppers in it
 ## Proxmark Standalone Raspberry Pi Zero 2 W
 
 `curl -sSfL https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/proxmarkpizero2w/install.sh | sh`
+
+`curl -sSfL https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/proxmarkpizero2w/setup-pm3.sh | sh`
+
+`curl -sSfL https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/proxmarkpizero2w/setup-raspap.sh | sh`
