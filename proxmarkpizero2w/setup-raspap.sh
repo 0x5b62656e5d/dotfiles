@@ -22,6 +22,19 @@ echo "Saving iptables rules to persist across reboots..."
 sudo apt-get install -y iptables-persistent
 sudo netfilter-persistent save
 
+# Set Wi-Fi country in wpa_supplicant.conf
+sudo sed -i '/^country=/d' /etc/wpa_supplicant/wpa_supplicant.conf
+echo "country=TW" | sudo tee -a /etc/wpa_supplicant/wpa_supplicant.conf
+
+# Set regulatory domain in crda defaults
+sudo sed -i '/^REGDOMAIN=/d' /etc/default/crda
+echo "REGDOMAIN=TW" | sudo tee -a /etc/default/crda
+
+cp $HOME/dotfiles/dots/proxmarkpizero2w/hostapd.conf /etc/hostapd/
+
+sudo systemctl disable NetworkManager
+sudo systemctl disable wpa_supplicant
+
 echo "Enabling RaspAP services..."
 sudo systemctl enable raspapd hostapd dnsmasq
 

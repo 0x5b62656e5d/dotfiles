@@ -42,10 +42,6 @@ sudo apt install fastfetch -y
 echo "Installing ripgrep..."
 sudo apt install ripgrep -y
 
-# Install nvim
-echo "Installing Neovim..."
-sudo apt install neovim -y
-
 # Installs nvm
 echo "Installing nvm..."
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
@@ -103,11 +99,12 @@ rm -rf $HOME/.config/nvim
 
 git clone https://github.com/0x5b62656e5d/dotfiles.git $HOME/dotfiles
 cd $HOME/dotfiles
-cp $HOME/dotfiles/dots/ubuntuserver/.zshrc $HOME/.zshrc
+cp $HOME/dotfiles/dots/proxmarkpizero2w/.zshrc $HOME/.zshrc
 cp $HOME/dotfiles/dots/.p10k.zsh $HOME/.p10k.zsh
 cp $HOME/dotfiles/.config/btop/btop.conf $HOME/.config/btop/btop.conf
 cp $HOME/dotfiles/.config/fastfetch/config.jsonc $HOME/.config/fastfetch/config.jsonc
-cp -r $HOME/dotfiles/.config/nvim $HOME/.config/nvim
+
+chsh -s "$(command -v zsh)" "$USER"
 
 echo "Installation complete!"
 echo "Rebooting system..."
