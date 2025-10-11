@@ -4,3 +4,4 @@
 - `hostapd.conf`: `/etc/hostapd/hostapd.conf`
 - `NetworkManager.conf`: `/etc/NetworkManager/NetworkManager.conf`
 - `wpa_supplicant.conf`: `/etc/wpa_supplicant/wpa_supplicant.conf`
+- `dhcpcd.conf`: `/etc/dhcpcd.conf`

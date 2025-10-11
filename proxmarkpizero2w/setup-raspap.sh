@@ -39,13 +39,12 @@ sudo cp $HOME/dotfiles/dots/proxmarkpizero2w/NetworkManager.conf /etc/NetworkMan
 sudo cp $HOME/dotfiles/dots/proxmarkpizero2w/dnsmasq.conf /etc/
 sudo cp $HOME/dotfiles/dots/proxmarkpizero2w/wpa_supplicant.conf /etc/wpa_supplicant/
 sudo cp $HOME/dotfiles/dots/proxmarkpizero2w/hostapd.conf /etc/hostapd/
+sudo cp $HOME/dotfiles/dots/proxmarkpizero2w/dhcpcd.conf /etc/
 
 # Configure services
 echo "Configuring services..."
-sudo systemctl restart NetworkManager
-sudo systemctl restart wpa_supplicant
 sudo systemctl enable raspapd hostapd dnsmasq
 
 echo "Setup complete!"
 echo "Rebooting system..."
-sudo reboot
+sudo reboot now
