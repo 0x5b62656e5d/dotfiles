@@ -1,0 +1,11 @@
+[Unit]
+Description=Create uap0 interface for RaspAP
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=sudo /usr/sbin/iw dev wlan0 interface add uap0 type __ap || true
+ExecStartPost=sudo /usr/sbin/ifconfig uap0 up || true
+
+[Install]
+WantedBy=multi-user.target

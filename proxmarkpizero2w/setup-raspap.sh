@@ -40,10 +40,12 @@ sudo cp $HOME/dotfiles/dots/proxmarkpizero2w/dnsmasq.conf /etc/
 sudo cp $HOME/dotfiles/dots/proxmarkpizero2w/wpa_supplicant.conf /etc/wpa_supplicant/
 sudo cp $HOME/dotfiles/dots/proxmarkpizero2w/hostapd.conf /etc/hostapd/
 sudo cp $HOME/dotfiles/dots/proxmarkpizero2w/dhcpcd.conf /etc/
+sudo cp $HOME/dotfiles/dots/proxmarkpizero2w/uap0-create.service /etc/systemd/system/
 
 # Configure services
 echo "Configuring services..."
 sudo systemctl enable raspapd hostapd dnsmasq
+sudo systemctl enable uap0-create
 
 echo "Setup complete!"
 echo "Rebooting system..."
