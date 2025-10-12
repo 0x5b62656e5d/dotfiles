@@ -4,8 +4,8 @@ After=network.target
 
 [Service]
 Type=oneshot
-ExecStart=sudo /usr/sbin/iw dev wlan0 interface add uap0 type __ap || true
-ExecStartPost=sudo /usr/sbin/ifconfig uap0 up || true
+ExecStart=sudo /usr/sbin/iw dev wlan0 interface add uap0 type __ap
+ExecStartPost=sudo /usr/sbin/ifconfig uap0 up
 
 [Install]
 WantedBy=multi-user.target
