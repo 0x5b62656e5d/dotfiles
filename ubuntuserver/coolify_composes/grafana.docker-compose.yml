@@ -29,6 +29,8 @@ services:
       - prometheus-data:/prometheus
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    command:
+      - "--storage.tsdb.retention.time=60d"
 
   node-exporter:
     image: prom/node-exporter:latest
