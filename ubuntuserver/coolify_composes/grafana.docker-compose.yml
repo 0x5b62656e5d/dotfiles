@@ -30,7 +30,9 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     command:
-      - "--storage.tsdb.retention.time=60d"
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=60d'
 
   node-exporter:
     image: prom/node-exporter:latest
