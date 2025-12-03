@@ -46,7 +46,7 @@ services:
       - /:/host:ro,rslave
   
   uptime-kuma:
-    image: 'louislam/uptime-kuma:1'
+    image: 'louislam/uptime-kuma:2'
     environment:
       - SERVICE_FQDN_UPTIMEKUMA_3001
     volumes:
