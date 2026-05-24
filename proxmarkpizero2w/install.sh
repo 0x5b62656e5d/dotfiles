@@ -19,6 +19,10 @@ echo "Installing zsh..."
 sudo apt install zsh -y
 sudo chsh -s "$(which zsh)" "$USER"
 
+# Installs starship
+echo "Installing Starship..."
+curl -sS https://starship.rs/install.sh | sh
+
 # Installs zsh-autosuggestions
 echo "Installing zsh-autosuggestions..."
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions

@@ -18,6 +18,20 @@ sudo apt install git -y
 echo "Installing zsh..."
 sudo apt install zsh -y
 
+sudo chsh -s "$(command -v zsh)" "$USER"
+
+# Installs starship
+echo "Installing Starship..."
+curl -sS https://starship.rs/install.sh | sh
+
+# Installs fzf
+echo "Installing fzf..."
+sudo apt install fzf
+
+# Installs fd
+echo "Installing fd..."
+sudo apt install fd-find
+
 # Installs zsh-autosuggestions
 echo "Installing zsh-autosuggestions..."
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
@@ -121,8 +135,6 @@ cp -r $HOME/dotfiles/.config/nvim $HOME/.config/nvim
 # Install Coolify
 echo "Installing Coolify..."
 curl -fsSL https://cdn.coollabs.io/coolify/install.sh | sudo bash
-
-sudo chsh -s "$(command -v zsh)" "$USER"
 
 echo "Installation complete!"
 echo "Rebooting system..."
