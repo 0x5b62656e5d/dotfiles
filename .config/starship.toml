@@ -49,6 +49,7 @@ $xmake\
 $zig\
 $buf\
 $conda\
+$hostname\
 $status\
 $cmd_duration\
 $time
@@ -105,3 +106,6 @@ format ="[$symbol$branch(:$remote_branch)]($style) "
 
 [git_metrics]
 disabled = false
+
+[hostname]
+format = '[$hostname](bold blue) '
