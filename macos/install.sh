@@ -16,30 +16,17 @@ echo "Installing zsh..."
 brew install zsh
 chsh -s $(which zsh)
 
-# Installs oh-my-zsh
-echo "Installing oh-my-zsh..."
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Installs powerlevel10k theme
-echo "Installing powerlevel10k theme..."
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
-
-# Configures zsh and p10k with dotfiles repository
-echo "Configuring zsh and powerlevel10k..."
-curl -o $HOME/.zshrc https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/.zshrc
-curl -o $HOME/.p10k.zsh https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/.p10k.zsh
-curl -o $HOME/.bash_profile https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/macos/.bash_profile
-curl -o $HOME/.gitconfig https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/macos/.gitconfig
-curl -o $HOME/.zprofile https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/macos/.zprofile
-curl -o $HOME/yt-dlp.conf https://raw.githubusercontent.com/0x5b62656e5d/dotfiles/main/dots/macos/yt-dlp.conf
+# Installs zsh-completions
+echo "Installing zsh-completions..."
+brew install zsh-completions
 
 # Installs zsh-autosuggestions
 echo "Installing zsh-autosuggestions..."
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+brew install zsh-autocomplete
 
 # Installs zsh-syntax-highlighting
 echo "Installing zsh-syntax-highlighting..."
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+brew install zsh-syntax-highlighting
 
 # Installs fastfetch
 echo "Installing fastfetch..."
@@ -134,6 +121,24 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 # Installs gh
 echo "Installing GitHub CLI..."
 brew install gh
+
+# Configuring dotfiles
+echo "Configuring dotfiles..."
+mkdir -p $HOME/.config/btop
+mkdir -p $HOME/.config/fastfetch
+mkdir -p $HOME/.config/gh-dash
+rm -rf $HOME/.config/nvim
+
+git clone https://github.com/0x5b62656e5d/dotfiles.git $HOME/dotfiles
+cp $HOME/dotfiles/dots/macos/.zshrc $HOME/.zshrc
+cp $HOME/dotfiles/dots/macos/.bash_profile $HOME/.bash_profile
+cp $HOME/dotfiles/dots/macos/.gitconfig $HOME/.gitconfig
+cp $HOME/dotfiles/dots/macos/.zprofile $HOME/.zprofile
+cp $HOME/dotfiles/dots/macos/yt-dlp.conf $HOME/.yt-dlp.conf
+cp $HOME/dotfiles/.config/btop/btop.conf $HOME/.config/btop/btop.conf
+cp $HOME/dotfiles/.config/fastfetch/config.jsonc $HOME/.config/fastfetch/config.jsonc
+cp $HOME/dotfiles/.config/gh-dash/config.yml $HOME/.config/gh-dash/config.yml
+cp $HOME/dotfiles/.config/starship.toml $HOME/.config/starship.toml
 
 echo "Installation complete!"
 

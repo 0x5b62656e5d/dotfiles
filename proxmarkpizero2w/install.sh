@@ -17,22 +17,15 @@ sudo apt install git -y
 # Installs zsh
 echo "Installing zsh..."
 sudo apt install zsh -y
-
-# Installs oh-my-zsh
-echo "Installing oh-my-zsh..."
-RUNZSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# Installs powerlevel10k theme
-echo "Installing powerlevel10k theme..."
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k"
+sudo chsh -s "$(which zsh)" "$USER"
 
 # Installs zsh-autosuggestions
 echo "Installing zsh-autosuggestions..."
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 
 # Installs zsh-syntax-highlighting
 echo "Installing zsh-syntax-highlighting..."
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 
 # Installs fastfetch
 echo "Installing fastfetch..."
@@ -98,13 +91,10 @@ mkdir -p $HOME/.config/fastfetch
 rm -rf $HOME/.config/nvim
 
 git clone https://github.com/0x5b62656e5d/dotfiles.git $HOME/dotfiles
-cd $HOME/dotfiles
 cp $HOME/dotfiles/dots/proxmarkpizero2w/.zshrc $HOME/.zshrc
-cp $HOME/dotfiles/dots/.p10k.zsh $HOME/.p10k.zsh
 cp $HOME/dotfiles/.config/btop/btop.conf $HOME/.config/btop/btop.conf
 cp $HOME/dotfiles/.config/fastfetch/config.jsonc $HOME/.config/fastfetch/config.jsonc
-
-sudo chsh -s "$(command -v zsh)" "$USER"
+cp $HOME/dotfiles/.config/starship.toml $HOME/.config/starship.toml
 
 echo "Installation complete!"
 echo "Rebooting system..."

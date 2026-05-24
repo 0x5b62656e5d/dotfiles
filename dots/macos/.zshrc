@@ -1,131 +1,9 @@
-# Enable Powerlevel9k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+eval "$(starship init zsh)"
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# powerlevel10k/powerlevel10k
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(history)
-POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+setopt AUTO_CD
+setopt correct
 
 export LS_COLORS="rs=0:no=00:mi=00:mh=00:ln=01;36:or=01;31:di=01;34:ow=04;01;34:st=34:tw=04;34:pi=01;33:so=01;33:do=01;33:bd=01;33:cd=01;33:su=01;35:sg=01;35:ca=01;35:ex=01;32:"
-
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
-
-# Uncomment one of the following lines to change the auto-update behavior
-# zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
-
-# Uncomment the following line to change how often to auto-update (in days).
-zstyle ':omz:update' frequency 14
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# You can also set it to another string to have that shown instead of the default red dots.
-# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(
-  git
-  nvm
-  brew
-  python
-  pip
-  zsh-autosuggestions
-  zsh-syntax-highlighting
-)
-
-source $ZSH/oh-my-zsh.sh
-
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='nvim'
-else
-  export EDITOR='nvim'
-fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-#! Custom plugins/configs
-#* ESPRESSIF IDF (ESP32 tools)
-export IDF_PATH=$HOME/esp/esp-idf
-alias idfinit='. $IDF_PATH/export.sh'
-alias idf=idf.py
 
 #* Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
@@ -140,7 +18,7 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 '
 
 # -- Use fd instead of fzf --
-export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_DEFAULT_COMMAND="fd --type=f --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 
@@ -155,31 +33,6 @@ _fzf_compgen_path() {
 _fzf_compgen_dir() {
   fd --type=d --hidden --exclude .git . "$1"
 }
-
-#* Alias for ls (eza)
-unalias ls
-alias ls='eza --color=always --long --all --git --no-filesize --modified --icons=always --no-user --no-permissions --tree --ignore-glob="build|node_modules" --level=2'
-
-#* Disabling/enabling - macOS
-function sleep() {
-  if [ -z "$1" ]; then
-    echo "Usage: sleep [on] | [off]"
-    return 1
-  fi
-
-  if [ "$1" = "on" ]; then
-    sudo pmset -a disablesleep 0
-    echo "Sleep enabled"
-  elif [ "$1" = "off" ]; then
-    sudo pmset -a disablesleep 1
-    echo "Sleep disabled"
-  else
-    echo "Usage: sleep [on] | [off]"
-    return 1
-  fi
-}
-
-autoload -Uz sleep
 
 #* eza & bat previews
 export FZF_CTRL_T_OPTS="--preview 'bat -n --color=always --line-range :500 {}'"
@@ -200,7 +53,32 @@ _fzf_comprun() {
   esac
 }
 
+# unalias ls
+alias ls='eza --color=always --long --all --git --git-repos --modified --icons=always --no-user --no-permissions --tree --ignore-glob="build|node_modules" --level=1'
+
+#* Disabling/enabling
+# function sleep() {
+#   if [ -z "$1" ]; then
+#     echo "Usage: sleep [on] | [off]"
+#     return 1
+#   fi
+
+#   if [ "$1" = "on" ]; then
+#     sudo pmset -a disablesleep 0
+#     echo "Sleep enabled"
+#   elif [ "$1" = "off" ]; then
+#     sudo pmset -a disablesleep 1
+#     echo "Sleep disabled"
+#   else
+#     echo "Usage: sleep [on] | [off]"
+#     return 1
+#   fi
+# }
+
+# autoload -Uz sleep
+
 #* Make vi into nvim (lazyvim)
+# unalias vi
 alias vi=nvim
 
 #* zoxide
@@ -211,7 +89,7 @@ alias cd="z"
 alias rezsh="source ~/.zshrc && clear"
 
 #* Time machine backup
-function tm() {
+function TM() {
   if [[ $1 == "--start" ]]; then
     tmutil startbackup
   elif [[ $1 == "--stat" ]]; then
@@ -219,11 +97,18 @@ function tm() {
   elif [[ $1 == "--stop" ]]; then
     tmutil stopbackup
   else
-    echo "Invalid option. Usage: tm [--start] [--stat] [--stop]"
+    echo "Invalid option. Usage: TM [--start] [--stat] [--stop]"
   fi
 }
 
-autoload -Uz tm
+autoload -Uz TM
+
+#* nodejs
+alias js=node
+
+#* SSH alias
+alias pepperserver="ssh pepper@100.92.19.12"
+alias pepperpi="ssh pepper@100.77.239.107"
 
 #* Mitmproxy proxy settings
 
@@ -240,10 +125,19 @@ function resetproxy() {
   networksetup -setsecurewebproxystate wi-fi off
 }
 
-#* Tailscale
-alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+#* Rust
+alias cc="cargo check"
+alias cb="cargo build"
+alias cbr="cargo build --release"
+alias cr="cargo run"
+alias ct="cargo test"
+alias cf="cargo fmt"
+alias cclippy="cargo clippy -- -D warnings"
 
-#* git
+#* Git
+alias gpd="git pull"
+alias gpu="git push"
+alias ga="git add"
 alias gaa="git add ."
 alias gcm="git commit -m"
 alias gsb="git switch -b"
@@ -251,72 +145,128 @@ alias gs="git switch"
 alias gsm="git switch --merge"
 alias gr="git restore"
 alias grs="git restore --staged"
+alias grim="git rebase -i main"
 alias gst="git stash push -u -m \"WIP\""
 alias gsp="git stash pop"
-alias glo="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>% Creset' --stat"
+alias glog="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --stat --show-signature"
 alias gd="git diff"
 alias gfp="git fetch -p"
 alias gcf="git clean -f"
+alias gpuhead="git push -u origin HEAD"
 
-function pull() {
-    fastfetch
+function gtp() {
+  if [ -z "$1" ]; then
+    echo "Usage: gtp <version>"
+    return 1
+  fi
 
-    local repos=(
-        # Add git repositories
-    )
-    
-    for repo in "${repos[@]}"; do
-        if [ -d "$repo/.git" ]; then
-            echo "Updating $repo..."
-            git -C "$repo" pull
-        else
-            echo "Skipping $repo: Not a Git repository"
-        fi
-    done
+  TAG=$1
+  [[ $TAG != v* ]] && TAG="v$TAG"
+  git tag -a "$TAG" -m "$TAG" && git push origin "$TAG"
 }
 
+alias ghd="gh dash"
+
+function ztime() {
+  python3 - << 'EOF'
+from datetime import datetime, timezone
+print(datetime.now(timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z"))
+EOF
+}
+
+function rdns() {
+  if [ -z "$1" ]; then
+    echo "Usage: railway-dns <DOMAIN>"
+    return 1
+  fi
+
+  echo "Getting CNAME records..."
+  nslookup -type=CNAME $1
+  echo "\nGetting TXT records..."
+  nslookup -type=TXT _railway-verify.$1
+  return 0
+}
+
+#* Go
+alias gor="go run ."
+alias gob="go build ."
+alias got="go test ."
+alias goc="go clean"
+alias gov="go vet ."
+alias gog="go get ."
+
+#* CMake
+alias cBb="cmake -B build -DCMAKE_EXPORT_COMPILE_COMMANDS=ON"
+alias cbb="cmake --build build"
+alias cbbc="cmake --build build --clean-first"
+
+#* Better-auth secret
+alias basecret="pnpm dlx @better-auth/cli secret"
 
 function dns() {
-  if [[ $1 == "--cf" ]]; then
+  if [[ $1 == "--CF" ]]; then
     networksetup -setdnsservers Wi-Fi 1.1.1.1
-  elif [[ $1 == "--none" ]]; then
+  elif [[ $1 == "--None" ]]; then
     networksetup -setdnsservers Wi-Fi Empty
-  elif [[ $1 == "--info" ]]; then
+  elif [[ $1 == "--Stat" ]]; then
     networksetup -getdnsservers Wi-Fi
+  elif [[ $1 == "--flush" ]]; then
+    sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
   else
-    echo "Invalid option. Usage: dns [--cf] [--stat] [--info]"
+    echo "Invalid option. Usage: dns [--CF] [--Stat] [--None] [--flush]"
   fi
 }
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+#* Kill pm3 instances
+function killpm3() {
+  sudo kill -9 $(sudo lsof /dev/tty.usbmodemiceman1 | awk 'NR>1 {print $2}');
+}
+
+autoload -Uz killpm3
+
+#* Clang/G++
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+export LDFLAGS="-L/opt/homebrew/opt/llvm/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm/include"
+export CMAKE_PREFIX_PATH="/opt/homebrew/opt/llvm"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-# PROS CLI autocomplete
-. "$HOME/Library/Application Support/PROS/autocomplete/pros-complete.zsh"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/opt/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/opt/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+export GPG_TTY=$(tty)
 
 # Rust initialization
 . "$HOME/.cargo/env"
 
-if [[ "$TERM_PROGRAM" == "vscode" ]]; then
-  export TERMINFO="/usr/share/terminfo"
+# pnpm
+export PNPM_HOME="/Users/benjamink/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+export PATH="/opt/homebrew/sbin:$PATH"
+export PATH="/Library/TeX/texbin:$PATH"
+
+if type brew &>/dev/null; then
+  fpath=(
+    /Users/benjamink/.docker/completions
+    $(brew --prefix)/share/zsh-completions
+    $fpath
+  )
+else
+  fpath=(/Users/benjamink/.docker/completions $fpath)
 fi
 
-export GPG_TTY=$(tty)
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
+
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

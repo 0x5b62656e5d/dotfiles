@@ -1,0 +1,107 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+format = """
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$git_metrics\
+$fill\
+$singularity\
+$kubernetes\
+$docker_context\
+$package\
+$c\
+$cpp\
+$cmake\
+$golang\
+$guix_shell\
+$haxe\
+$helm\
+$java\
+$julia\
+$gradle\
+$lua\
+$maven\
+$nim\
+$nodejs\
+$bun\
+$ocaml\
+$opa\
+$php\
+$pulumi\
+$purescript\
+$python\
+$raku\
+$rlang\
+$red\
+$rust\
+$scala\
+$solidity\
+$swift\
+$terraform\
+$vlang\
+$vagrant\
+$xmake\
+$zig\
+$buf\
+$conda\
+$status\
+$cmd_duration\
+$time
+$sudo\
+$character
+"""
+
+continuation_prompt = "[▸▹ ](white)"
+
+[character]
+format = "$symbol "
+success_symbol = '[➜](bold bright-yellow)'
+error_symbol = '[➜](red)'
+
+[fill]
+symbol = ' '
+
+[package]
+disabled = false
+
+[cmd_duration]
+min_time = 0
+show_milliseconds = true
+format = "[ $duration](italic bold purple) "
+show_notifications = true
+min_time_to_notify = 30_000
+
+[time]
+disabled = false
+format ="[$time](italic white)"
+
+[sudo]
+format ="[S ](bold red)"
+disabled = false
+
+[status]
+# style = 'bg:blue'
+success_style = 'green'
+failure_style = 'bold red'
+symbol = '✘'
+not_executable_symbol = '✘'
+not_found_symbol = '✘'
+sigint_symbol = '✘'
+success_symbol = '✔'
+format = '[$symbol $int]($style) '
+map_symbol = true
+disabled = false
+
+[directory]
+home_symbol = ''
+
+[git_branch]
+format ="[$symbol$branch(:$remote_branch)]($style) "
+
+[git_metrics]
+disabled = false
