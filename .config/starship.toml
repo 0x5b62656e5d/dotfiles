@@ -49,8 +49,8 @@ $xmake\
 $zig\
 $buf\
 $conda\
-$hostname\
 $status\
+$hostname\
 $cmd_duration\
 $time
 $sudo\
